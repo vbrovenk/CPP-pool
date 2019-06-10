@@ -2,25 +2,12 @@
 
 int main(int argc, char const *argv[])
 {
-	int index;
-	int i;
-
 	if (argc > 1)
 	{
-		i = 1;
-		while (i < argc)
+		for (int i = 1; i < argc; i++)
 		{
-			index = 0;
-			while (argv[i][index])
-			{
-				if (argv[i][index] >= 'a' && argv[i][index] <= 'z')
-					std::cout << (char)(argv[i][index] - 32);
-				else
-					std::cout << argv[i][index];
-				index++;
-			}
-
-			i++;
+			for (int index = 0; argv[i][index]; index++)
+				std::cout << (char)toupper(argv[i][index]);
 		}
 		std::cout << std::endl;
 	}

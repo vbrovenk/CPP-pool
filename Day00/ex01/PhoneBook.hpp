@@ -10,6 +10,7 @@ public:
 	void	addNewContact(void);
 	int		getIndex(void);
 	void	showContacts(void) const;
+	void	fullContactInfo(void) const;
 
 private:
 	Contact _contacts[8];

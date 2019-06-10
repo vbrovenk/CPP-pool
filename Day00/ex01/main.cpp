@@ -1,11 +1,9 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
-
 int main(void)
 {
 	std::string command;
-
 	PhoneBook phonebook;
 
 	while (1)
@@ -24,8 +22,6 @@ int main(void)
 		}
 		else if (command.compare("SEARCH") == 0)
 			phonebook.showContacts();
-
 	}
-
 	return 0;
 }

@@ -1,3 +1,4 @@
+#include <iomanip>
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void)
@@ -11,8 +12,8 @@ void	PhoneBook::addNewContact(void)
 	{
 		Contact newContact(_index);
 		_contacts[_index] = newContact;
+		_index++;
 	}
-	_index++;
 }
 
 int		PhoneBook::getIndex(void)
@@ -22,26 +23,58 @@ int		PhoneBook::getIndex(void)
 
 void	PhoneBook::showContacts(void) const
 {
-	std::string choice;
-	int need_index;
+	std::string truncFirstName;
+	std::string truncLastName;
+	std::string truncNickName;
 
 	for (int i = 0; i < _index; i++)
 	{
-		std::cout << _contacts[i].getIndex() << " | ";
-		std::cout << _contacts[i].getFirstName() << " | ";
+		std::cout << std::setw(10) << _contacts[i].getIndex() << "|";
+		if (_contacts[i].getFirstName().length() > 10)
+		{
+			truncFirstName = _contacts[i].getFirstName().substr(0, 9);
+			std::cout << truncFirstName << ".|";
+		}
+		else
+			std::cout << std::setw(10) << _contacts[i].getFirstName() << "|";
+		
+		if (_contacts[i].getLastName().length() > 10)
+		{
+			truncLastName = _contacts[i].getLastName().substr(0, 9);
+			std::cout << truncLastName << ".|";
+		}
+		else
+			std::cout << std::setw(10) << _contacts[i].getLastName() << "|";
+		
+		if (_contacts[i].getNickName().length() > 10)
+		{
+			truncNickName = _contacts[i].getNickName().substr(0, 9);
+			std::cout << truncNickName << ".";
+		}
+		else
+			std::cout << std::setw(10) << _contacts[i].getNickName();
 		std::cout << std::endl;
 	}
+	fullContactInfo();
+}
 
-	// std::cout << "Choose INDEX of contact for more info: ";
-	// std::cin >> choice;
-	// std::cout << choice;
-	// for (int j = 0; j < choice.length(); j++)
-	// {
-	// 	if (!isdigit(choice[j]))
-	// 	{
-	// 		std::cout << "You write not a number." << std::endl;
-	// 		return ;
-	// 	}
-	// }
-	// need_index = atoi(choice);
+void	PhoneBook::fullContactInfo(void) const
+{
+	std::string choice;
+
+	std::cout << "Choose INDEX of contact for more info: ";
+	std::cin >> choice;
+	for (size_t j = 0; j < choice.length(); j++)
+	{
+		if (!std::isdigit(choice[j]))
+		{
+			std::cout << "Wrong index!" << std::endl;
+			return ;
+		}
+	}
+	int need_index = std::stoi(choice);
+	if (need_index >= 0 && need_index < 8 && need_index < _index)
+		_contacts[need_index].printInfo();
+	else
+		std::cout << "Wrong index!" << std::endl;
 }

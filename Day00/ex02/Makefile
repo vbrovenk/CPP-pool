@@ -1,13 +1,10 @@
 NAME = phoneBook
 
-SRC = 	main.cpp \
-		Contact.cpp \
-		PhoneBook.cpp
+SRC = 	Account.class.cpp \
+		tests.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-HEADERS =	Contact.hpp \
-			PhoneBook.hpp
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -16,7 +13,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	clang++ $(OBJ)  -o $(NAME)
 	
-%.o: %.cpp $(HEADERS)
+%.o: %.cpp
 	clang++ $(FLAGS) -c $< -o $@
 
 clean:
