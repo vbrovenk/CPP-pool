@@ -1,4 +1,4 @@
-NAME = phoneBook
+NAME = accs
 
 SRC = 	Account.class.cpp \
 		tests.cpp
@@ -14,7 +14,7 @@ $(NAME): $(OBJ)
 	clang++ $(OBJ)  -o $(NAME)
 	
 %.o: %.cpp
-	clang++ $(FLAGS) -c $< -o $@
+	clang++ -c $< -o $@
 
 clean:
 	rm -rf $(OBJ)
