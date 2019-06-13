@@ -7,10 +7,11 @@ int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
 
-Account::Account(int initial_deposit)
+Account::Account(int initial_deposit) : _amount(initial_deposit), _nbDeposits(0), _nbWithdrawals(0)
 {	
+	Account::_displayTimestamp();
+
 	_accountIndex = Account::_nbAccounts++;
-	_amount = initial_deposit;
 	Account::_totalAmount += _amount;
 
 	std::cout << "index:" << _accountIndex << ";";
@@ -20,6 +21,8 @@ Account::Account(int initial_deposit)
 
 void	Account::makeDeposit(int deposit)
 {
+	Account::_displayTimestamp();
+
 	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "p_amount:" << _amount << ";";
 	std::cout << "deposit:" << deposit << ";";
@@ -33,6 +36,8 @@ void	Account::makeDeposit(int deposit)
 
 bool	Account::makeWithdrawal(int withdrawal)
 {
+	Account::_displayTimestamp();
+
 	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "p_amount:" << _amount << ";";
 	std::cout << "withdrawal:";
@@ -58,6 +63,8 @@ int		Account::checkAmount(void) const
 
 void	Account::displayStatus(void) const
 {
+	Account::_displayTimestamp();
+
 	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "amount:" << _amount << ";";
 	std::cout << "deposits:" << _nbDeposits << ";";
@@ -66,11 +73,25 @@ void	Account::displayStatus(void) const
 
 void	Account::displayAccountsInfos(void)
 {
-	std::cout << "accounts:" << Account::_nbAccounts << ";";
-	std::cout << "total:" << Account::_totalAmount << ";";
-	std::cout << "deposits:" << Account::_totalNbDeposits << ";";
-	std::cout << "withdrawals:" << Account::_totalNbWithdrawals << std::endl;
+	Account::_displayTimestamp();
 
+	std::cout << "accounts:" << getNbAccounts() << ";";
+	std::cout << "total:" << getTotalAmount() << ";";
+	std::cout << "deposits:" << getNbDeposits() << ";";
+	std::cout << "withdrawals:" << getNbWithdrawals() << std::endl;
+
+}
+
+void	Account::_displayTimestamp(void)
+{
+	time_t rawtime;
+	struct tm *timeinfo;
+	char buffer[80];
+
+	time(&rawtime);
+	timeinfo = localtime(&rawtime);
+	strftime(buffer, 80, "[%G%e%m_%H%M%S] ", timeinfo);
+	std::cout << buffer;
 }
 
 // keyword static doesn't use here
@@ -96,6 +117,8 @@ int Account::getNbWithdrawals(void)
 
 Account::~Account(void)
 {
+	Account::_displayTimestamp();
+
 	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "amount:" << _amount << ";";
 	Account::_nbAccounts -= 1;

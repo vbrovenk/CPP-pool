@@ -16,43 +16,42 @@ void	PhoneBook::addNewContact(void)
 	}
 }
 
-int		PhoneBook::getIndex(void)
+int		PhoneBook::getIndex(void) const
 {
 	return _index;
 }
 
+void	PhoneBook::_cutString(std::string needCut) const
+{
+	std::string truncated;
+
+	if (needCut.length() > 10)
+	{
+		truncated = needCut.substr(0, 9);
+		std::cout << truncated << ".";
+	}
+	else
+		std::cout << std::setw(10) << needCut;
+}
+
 void	PhoneBook::showContacts(void) const
 {
-	std::string truncFirstName;
-	std::string truncLastName;
-	std::string truncNickName;
-
+	if (_index == 0)
+	{
+		std::cout << "PhoneBook is empty." << std::endl;
+		return ;
+	}
 	for (int i = 0; i < _index; i++)
 	{
 		std::cout << std::setw(10) << _contacts[i].getIndex() << "|";
-		if (_contacts[i].getFirstName().length() > 10)
-		{
-			truncFirstName = _contacts[i].getFirstName().substr(0, 9);
-			std::cout << truncFirstName << ".|";
-		}
-		else
-			std::cout << std::setw(10) << _contacts[i].getFirstName() << "|";
+
+		_cutString(_contacts[i].getFirstName());
+		std::cout << "|";
 		
-		if (_contacts[i].getLastName().length() > 10)
-		{
-			truncLastName = _contacts[i].getLastName().substr(0, 9);
-			std::cout << truncLastName << ".|";
-		}
-		else
-			std::cout << std::setw(10) << _contacts[i].getLastName() << "|";
-		
-		if (_contacts[i].getNickName().length() > 10)
-		{
-			truncNickName = _contacts[i].getNickName().substr(0, 9);
-			std::cout << truncNickName << ".";
-		}
-		else
-			std::cout << std::setw(10) << _contacts[i].getNickName();
+		_cutString(_contacts[i].getLastName());
+		std::cout << "|";
+
+		_cutString(_contacts[i].getNickName());
 		std::cout << std::endl;
 	}
 	fullContactInfo();
@@ -60,21 +59,22 @@ void	PhoneBook::showContacts(void) const
 
 void	PhoneBook::fullContactInfo(void) const
 {
-	std::string choice;
+	int choice;
 
 	std::cout << "Choose INDEX of contact for more info: ";
 	std::cin >> choice;
-	for (size_t j = 0; j < choice.length(); j++)
+	if (std::cin.eof())
+		exit(1);
+	if (std::cin.fail() || std::cin.eof())
 	{
-		if (!std::isdigit(choice[j]))
-		{
-			std::cout << "Wrong index!" << std::endl;
-			return ;
-		}
+		std::cout << "Wrong input!" << std::endl;
+		std::cin.clear();
+		std::cin.ignore(32767, '\n');
+		return ;
 	}
-	int need_index = std::stoi(choice);
-	if (need_index >= 0 && need_index < 8 && need_index < _index)
-		_contacts[need_index].printInfo();
+	std::cin.ignore(32767, '\n');
+	if (choice >= 0 && choice < 8 && choice < _index)
+		_contacts[choice].printInfo();
 	else
 		std::cout << "Wrong index!" << std::endl;
 }
