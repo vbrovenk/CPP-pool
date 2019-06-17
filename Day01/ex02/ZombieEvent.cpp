@@ -17,6 +17,8 @@ void ZombieEvent::randomChump(void)
 	const int size = 4;
 	const char *names[size] = {"Vasek", "Tolik", "Alyosha", "Petya"};
 
+	srand (time(NULL));
+
 	Zombie zomb(names[std::rand() % size]);
 	zomb.setType(_zombieType);
 	zomb.announce();

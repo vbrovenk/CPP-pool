@@ -7,14 +7,14 @@ class Human
 {
 
 private:
-	Brain _localBrain;
+	const Brain _localBrain;
 
 public:
 	Human(void);
 	~Human();
 
 	std::string identify(void) const;
-	Brain &getBrain(void);
+	const Brain &getBrain(void);
 
 };
 

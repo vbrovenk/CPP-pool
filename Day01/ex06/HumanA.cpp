@@ -1,20 +1,14 @@
 #include "HumanA.hpp"
 
-HumanA::HumanA(void)
+HumanA::HumanA(std::string name, Weapon &wpn) : _name(name), _weapon(wpn)
 {
-
-}
-
-HumanA::HumanA(std::string name, Weapon wpn)
-{
-	_name = name;
-	_weapon = &wpn;
+	std::cout << "Constructor HumanA" << std::endl;
 }
 
 void HumanA::attack(void) const
 {
 	std::cout << _name << " attacks with his ";
-	std::cout << _weapon->getType() << std::endl;
+	std::cout << _weapon.getType() << std::endl;
 }
 
 HumanA::~HumanA()
