@@ -6,7 +6,6 @@ int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
-
 Account::Account(int initial_deposit) : _amount(initial_deposit), _nbDeposits(0), _nbWithdrawals(0)
 {	
 	Account::_displayTimestamp();
@@ -58,7 +57,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 
 int		Account::checkAmount(void) const
 {
-	
+	return 1;
 }
 
 void	Account::displayStatus(void) const
@@ -94,7 +93,6 @@ void	Account::_displayTimestamp(void)
 	std::cout << buffer;
 }
 
-// keyword static doesn't use here
 int Account::getNbAccounts(void)
 {
 	return Account::_nbAccounts;

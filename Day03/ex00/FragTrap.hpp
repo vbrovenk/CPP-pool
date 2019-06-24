@@ -7,15 +7,15 @@ class FragTrap
 {
 
 private:
-	unsigned int _hitPoints;
-	unsigned int _maxHitPoints;
-	unsigned int _energyPoints;
-	unsigned int _maxEnergyPoints;
-	unsigned int _level;
+	int _hitPoints;
+	int _maxHitPoints;
+	int _energyPoints;
+	int _maxEnergyPoints;
+	int _level;
 	std::string _name;
-	unsigned int _meleeAttack;
-	unsigned int _rangedAttack;
-	unsigned int _armorReduction;
+	int _meleeAttack;
+	int _rangedAttack;
+	int _armorReduction;
 
 public:
 	FragTrap(void);

@@ -2,7 +2,7 @@
 # define FIXED_HPP
 
 # include <iostream>
-# include <math.h>
+# include <cmath>
 
 class Fixed
 {

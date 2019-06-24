@@ -18,9 +18,8 @@ Fixed::Fixed(const float fltVal)
 {
 	std::cout << "Float Constructor called" << std::endl;
 
-	this->_rawBits = std::roundf(fltVal * (1 << _fractBits));
+	this->_rawBits = roundf(fltVal * (1 << _fractBits));
 }	
-
 
 Fixed::~Fixed()
 {
@@ -91,6 +90,7 @@ Fixed Fixed::operator -(const Fixed &other)
 	return temp;
 }
 
+// toFloat() * toFloat()
 Fixed Fixed::operator *(const Fixed &other)
 {
 	Fixed temp;

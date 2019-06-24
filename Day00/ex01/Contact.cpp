@@ -9,27 +9,27 @@ Contact::Contact(int index)
 {
 	this->_index = index;
 	std::cout << "Input first name: ";
-	std::cin >> _firstName;
+	std::getline(std::cin, _firstName);
 	std::cout << "Input last name: ";
-	std::cin >> _lastName;
+	std::getline(std::cin, _lastName);
 	std::cout << "Input nickname: ";
-	std::cin >> _nickName;
+	std::getline(std::cin, _nickName);
 	std::cout << "Input login: ";
-	std::cin >> _login;
+	std::getline(std::cin, _login);
 	std::cout << "Input postal address: ";
-	std::cin >> _postalAddress;
+	std::getline(std::cin, _postalAddress);
 	std::cout << "Input email address: ";
-	std::cin >> _emailAddress;
+	std::getline(std::cin, _emailAddress);
 	std::cout << "Input phone number: ";
-	std::cin >> _phoneNumber;
+	std::getline(std::cin, _phoneNumber);
 	std::cout << "Input birthday date: ";
-	std::cin >> _birthdayDate;
+	std::getline(std::cin, _birthdayDate);
 	std::cout << "Input favorite meal: ";
-	std::cin >> _favoriteMeal;
+	std::getline(std::cin, _favoriteMeal);
 	std::cout << "Input underwear color: ";
-	std::cin >> _underwearColor;
+	std::getline(std::cin, _underwearColor);
 	std::cout << "Input darkest secret: ";
-	std::cin >> _darkestSecret;
+	std::getline(std::cin, _darkestSecret);
 }
 
 int		Contact::getIndex(void) const
