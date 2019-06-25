@@ -5,13 +5,15 @@ ZombieHorde::ZombieHorde(int N)
 	if (N < 0)
 	{
 		std::cout << "Wrong number" << std::endl;
-		exit(1);
+		return ;
 	}
 	_count = N;
 	_zombies = new Zombie[N];
 
 	const int size = 4;
 	const char *names[size] = {"Vasek", "Tolik", "Alyosha", "Petya"};
+	
+	srand (time(NULL));
 
 	for (int i = 0; i < _count; i++)
 	{

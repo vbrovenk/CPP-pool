@@ -1,0 +1,7 @@
+MAke A progrAm cAlled replAce thAt tAkes A filenAme And two strings, let’s cAll them
+s1 And s2, thAt Are NOT empty.
+It will open the file, And write its contents to FILENAME.replAce, After replAcing
+every occurence of s1 with s2.
+Of course, you will hAndle errors As best you cAn, And not use the C file mAnipulAtion
+functions, becAuse thAt would be cheAting, And cheAting’s bAd, m’kAy ?
+You will turn in some test files to show your progrAm works.

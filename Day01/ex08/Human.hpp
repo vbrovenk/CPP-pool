@@ -12,8 +12,6 @@ private:
 	void intimidatingShout(std::string const &target);
 
 public:
-	// Human();
-	// ~Human();
 	void action(std::string const & action_name, std::string const &target);
 	
 };

@@ -23,7 +23,7 @@ void Human::action(std::string const & action_name, std::string const &target)
 	ptrFunction[0] = &Human::meleeAttack;
 	ptrFunction[1] = &Human::rangedAttack;
 	ptrFunction[2] = &Human::intimidatingShout;
-
+	
 	std::string funcNames[] = {
 		"meleeAttack",
 		"rangedAttack",

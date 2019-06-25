@@ -15,7 +15,6 @@ public:
 
 	std::string identify(void) const;
 
-
 };
 
 #endif

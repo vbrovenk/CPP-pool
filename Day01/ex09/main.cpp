@@ -8,7 +8,7 @@ int main(void)
 	Logger log1("check.txt");
 
 	log1.log(console, "Emchendem");
-	log1.log(file, "Nozka nosorozhka");
+	log1.log(file, "Nozhka nosorozhka");
 
 	return 0;
 }

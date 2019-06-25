@@ -12,10 +12,15 @@ void	Logger::_logToConsole(std::string const &msg)
 	std::cout << msg;
 }
 
-
 void	Logger::_logToFile(std::string const &msg)
 {
 	std::ofstream ofs(_fileName, std::ios::app);
+	if (ofs.is_open() == 0)
+	{
+		std::cout << "Can't open file: " << _fileName << std::endl;
+		ofs.close();
+		return ;
+	}
 	ofs << msg;
 
 	ofs.close();
@@ -37,32 +42,27 @@ std::string Logger::_makeLogEntry(std::string const &msg)
 	return newMsg;
 }
 
-
 void Logger::log(std::string const &dest, std::string const &message)
 {
 	std::string readyLog = _makeLogEntry(message);
 
-	void (Logger::*funcPtrs[])(std::string const &msg) {
+	void (Logger::*funcPtrs[])(std::string const &msg) = {
 		&Logger::_logToConsole,
 		&Logger::_logToFile
 	};
 
-	std::string funcNames[] {
+	std::string funcNames[] = {
 		"_logToConsole",
 		"_logToFile"
 	};
-
-	bool find = false;
 
 	for (int i = 0; i < 2; i++)
 	{
 		if (dest == funcNames[i])
 		{
-			find = true;
 			(this->*funcPtrs[i])(readyLog);
-			break ;
+			return ;
 		}
 	}
-	if (find == false)
-		std::cout << "Logging: " << dest << " - failed." << std::endl;
+	std::cout << "Logging: " << dest << " - failed." << std::endl;
 }

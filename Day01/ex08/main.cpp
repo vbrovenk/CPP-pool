@@ -6,7 +6,7 @@ int main(void)
 	std::string target1 = "wolf";
 	std::string actionM = "meleeAttack";
 
-	std::string target2 = "mouse";	
+	std::string target2 = "mouse";
 	std::string actionR = "rangedAttack";
 
 	std::string actionI = "intimidatingShout";

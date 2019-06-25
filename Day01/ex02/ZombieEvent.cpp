@@ -1,5 +1,10 @@
 #include "ZombieEvent.hpp"
 
+ZombieEvent::ZombieEvent(void)
+{
+	_zombieType = "defaultZombieType";
+}
+
 void ZombieEvent::setZombieType(std::string type)
 {
 	_zombieType = type;

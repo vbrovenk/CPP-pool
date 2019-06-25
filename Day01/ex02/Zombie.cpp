@@ -4,11 +4,14 @@ Zombie::Zombie(void)
 {
 	_type = "defaultType";
 	_name = "defaultName";
+	std::cout << "Default Constructor Zombie: " << _name << std::endl;
+
 }
 
 Zombie::Zombie(std::string name) : _name(name)
 {
 	std::cout << "Constructor Zombie: " << _name << std::endl;
+	_type = "defaultType";
 }
 
 Zombie::~Zombie()

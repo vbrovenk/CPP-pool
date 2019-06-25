@@ -2,7 +2,7 @@
 
 HumanB::HumanB(std::string name) : _name(name)
 {
-
+	std::cout << "Constructor HumanB" << std::endl;
 }
 
 void HumanB::setWeapon(Weapon &wpn)

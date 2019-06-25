@@ -12,7 +12,6 @@ Human::~Human()
 
 std::string Human::identify(void) const
 {
-	// std::cout << "Human::identify" << _localBrain.identify() << std::endl;
 	return _localBrain.identify();
 }
 

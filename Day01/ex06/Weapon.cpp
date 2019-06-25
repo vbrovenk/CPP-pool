@@ -10,9 +10,8 @@ Weapon::Weapon(std::string type)
 	_type = type;
 }
 
-std::string &Weapon::getType(void)
+std::string const &Weapon::getType(void)
 {
-	// const std::string &ref = _type;
 	return _type;
 }
 

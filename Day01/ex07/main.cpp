@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include <fstream>
-
+#include <cerrno>
 
 int main(int argc, char *argv[])
 {
@@ -13,7 +13,10 @@ int main(int argc, char *argv[])
 
 	std::ifstream ifs(argv[1]);
 	if (ifs.is_open() == 0)
+	{
 		std::cout << "Can't open file: " << argv[1] << std::endl;
+		exit(1);
+	}
 	
 	if (strlen(argv[2]) == 0 || strlen(argv[3]) == 0)
 	{
@@ -26,27 +29,31 @@ int main(int argc, char *argv[])
 	newName.append(".replace");
 
 	std::ofstream ofs(newName);
-
+	if (ofs.is_open() == 0)
+	{
+		std::cout << "Can't open file: " << newName << std::endl;
+		ofs.close();
+		ifs.close();
+		exit (1);
+	}
 	std::string line;
 
 	while (getline(ifs, line))
 	{
-		std::cout << line << std::endl;
-		size_t index = 0;	
+		size_t index = 0;
 		while (true)
 		{
 			index = line.find(argv[2], index);
 			if (index == std::string::npos)
-				break;
+				break ;
 			line.replace(index, strlen(argv[2]), argv[3]);
-
-			index += strlen(argv[2]);
-
-			std::cout << "Modyfied: " << line << std::endl;
-			ofs << line << "\n";
+			index += strlen(argv[3]);
 		}
+		ofs << line << "\n";
 	}
 
+	if (errno != 0)
+		std::cout << argv[1] << ": " << strerror(errno) << std::endl;
 	ifs.close();
 	ofs.close();
 
