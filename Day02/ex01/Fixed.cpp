@@ -17,19 +17,9 @@ Fixed::Fixed(const int intVal)
 Fixed::Fixed(const float fltVal)
 {
 	std::cout << "Float Constructor called" << std::endl;
-	//    0  10000100 01010011010111000010100 - 42.42
-	//	| s |    e   |            M          |
-	
-	// *
-	//	  0  00000000 00000000000000100000000	- 1 << 8
-	// = -----------------------------------------------
-	// 
 
-	// std::cout << "Test: " << (1 << this->_fractBits) << std::endl;
-
-	this->_rawBits = std::roundf(fltVal * (1 << _fractBits));
+	this->_rawBits = roundf(fltVal * (1 << _fractBits));
 }	
-
 
 Fixed::~Fixed()
 {
@@ -55,19 +45,13 @@ Fixed & Fixed::operator=(Fixed const &rhs)
 	return *this;
 }
 
-
-
 int Fixed::getRawBits( void ) const
 {
-	// std::cout << "getRawBits member function called" << std::endl;
-	
 	return _rawBits;
 }
 
 void Fixed::setRawBits( int const raw )
 {
-	// std::cout << "setRawBits member function called" << std::endl;
-
 	_rawBits = raw;
 }
 

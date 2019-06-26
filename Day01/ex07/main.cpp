@@ -37,7 +37,6 @@ int main(int argc, char *argv[])
 		exit (1);
 	}
 	std::string line;
-
 	while (getline(ifs, line))
 	{
 		size_t index = 0;

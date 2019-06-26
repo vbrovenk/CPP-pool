@@ -8,7 +8,6 @@ Fixed::Fixed(void) : _rawBits(0)
 				<< _rawBits << std::endl; 
 }
 
-
 Fixed::~Fixed()
 {
 	std::cout << "Destructor with _rawBits: " 
@@ -25,15 +24,13 @@ Fixed::Fixed(Fixed const &obj)
 
 Fixed & Fixed::operator=(Fixed const &rhs)
 {
-	std::cout << "Assignment operator called with _rawBits: " 
+	std::cout << "Assignment operator called with _rawBits: "
 				<< _rawBits << std::endl;
 	if (this != &rhs)
 			this->_rawBits = rhs.getRawBits();
 	
 	return *this;
 }
-
-
 
 int Fixed::getRawBits( void ) const
 {

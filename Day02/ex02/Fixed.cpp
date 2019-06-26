@@ -4,41 +4,41 @@ const int Fixed::_fractBits = 8;
 
 Fixed::Fixed(void) : _rawBits(0)
 {
-	std::cout << "Default Constructor with _rawBits: " 
-				<< _rawBits << std::endl; 
+	// std::cout << "Default Constructor with _rawBits: " 
+	// 			<< _rawBits << std::endl; 
 }
 
 Fixed::Fixed(const int intVal)
 {
-	std::cout << "Int Constructor called" << std::endl;
+	// std::cout << "Int Constructor called" << std::endl;
 	_rawBits = (intVal << _fractBits);
 }
 
 Fixed::Fixed(const float fltVal)
 {
-	std::cout << "Float Constructor called" << std::endl;
+	// std::cout << "Float Constructor called" << std::endl;
 
 	this->_rawBits = roundf(fltVal * (1 << _fractBits));
 }	
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor with _rawBits: " 
-				<< _rawBits << std::endl; 
+	// std::cout << "Destructor with _rawBits: " 
+	// 			<< _rawBits << std::endl; 
 }
 
 Fixed::Fixed(Fixed const &other)
 {
-	std::cout << "Copy Constructor with _rawBits: "
-				<< _rawBits << std::endl;
+	// std::cout << "Copy Constructor with _rawBits: "
+	// 			<< _rawBits << std::endl;
 
 	*this = other;
 }
 
 Fixed & Fixed::operator =(Fixed const &rhs)
 {
-	std::cout << "Assignment operator called with _rawBits: " 
-				<< _rawBits << std::endl;
+	// std::cout << "Assignment operator called with _rawBits: " 
+	// 			<< _rawBits << std::endl;
 	if (this != &rhs)
 			this->_rawBits = rhs.getRawBits();
 	
@@ -75,7 +75,6 @@ bool Fixed::operator !=(const Fixed &other) const
 	return (_rawBits != other.getRawBits()) ? true : false;
 }
 
-
 Fixed Fixed::operator +(const Fixed &other)
 {
 	Fixed temp;
@@ -104,7 +103,6 @@ Fixed Fixed::operator /(const Fixed &other)
 	temp._rawBits = ((long)_rawBits << _fractBits) / other.getRawBits();
 	return temp;
 }
-
 
 Fixed & Fixed::operator ++()
 {
@@ -167,28 +165,28 @@ std::ostream &operator<<(std::ostream &o, Fixed const &i)
 
 Fixed &Fixed::min(Fixed &left, Fixed &right)
 {
-	std::cout << "Regular min()" << std::endl;
+	// std::cout << "Regular min()" << std::endl;
 
 	return (left < right ? left : right);
 }
 
-const Fixed &Fixed::min(const Fixed &left, const Fixed &right)
+Fixed const &Fixed::min(Fixed const &left, Fixed const &right)
 {
-	std::cout << "Const min()" << std::endl;
+	// std::cout << "Const min()" << std::endl;
 
 	return (left < right ? left : right);
 }
 
 Fixed &Fixed::max(Fixed &left, Fixed &right)
 {
-	std::cout << "Regular max()" << std::endl;
+	// std::cout << "Regular max()" << std::endl;
 
 	return (left > right ? left : right);
 }
 
-const Fixed &Fixed::max(const Fixed &left, const Fixed &right)
+Fixed const &Fixed::max(Fixed const &left, Fixed const &right)
 {
-	std::cout << "Const max()" << std::endl;
+	// std::cout << "Const max()" << std::endl;
 
 	return (left > right ? left : right);
 }

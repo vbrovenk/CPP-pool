@@ -17,7 +17,6 @@ public:
 	Fixed(Fixed const &other);
 	Fixed(const int intVal);
 	Fixed(const float fltVal);
-
 	~Fixed();
 
 	Fixed & operator =(const Fixed &rhs);
@@ -46,9 +45,9 @@ public:
 	int toInt(void) const;
 
 	static Fixed &min(Fixed &left, Fixed &right);
-	static const Fixed &min(const Fixed &left, const Fixed &right);
+	static Fixed const &min(Fixed const &left, Fixed const &right);
 	static Fixed &max(Fixed &left, Fixed &right);
-	static const Fixed &max(const Fixed &left, const Fixed &right);
+	static Fixed const &max(Fixed const &left, Fixed const &right);
 	
 };
 
