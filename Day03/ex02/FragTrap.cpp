@@ -14,9 +14,10 @@ FragTrap::FragTrap(void)
 	_armorReduction = 5;
 }
 
-FragTrap::FragTrap(std::string name) : _name(name)
+FragTrap::FragTrap(std::string name)
 {
 	std::cout << "Constructor called." << std::endl;
+	_name = name;
 	_hitPoints = 100;
 	_maxHitPoints = 100;
 	_energyPoints = 100;
@@ -64,49 +65,49 @@ void FragTrap::meleeAttack(std::string const & target)
 	" points of damage !" << std::endl;
 }
 
-void FragTrap::takeDamage(unsigned int amount)
-{
-	long interAmount = (long)amount - _armorReduction;
-	if (interAmount < 0)
-		interAmount = 0;
-	std::cout << "interAmount = " << interAmount << std::endl;
-	if (_hitPoints == 0)
-		std::cout << "HP is 0." << std::endl;
-	else if ((long)_hitPoints - interAmount >= 0)
-	{
-		_hitPoints -= interAmount;
-		std::cout << "FR4G-TP " << _name << " took damege: -" <<
-		interAmount << " hit points. | " << "HP: " << _hitPoints
-		 << std::endl;
-	}
-	else
-	{
-		std::cout << "FR4G-TP " << _name << " took damege: -" <<
-		_hitPoints << " hit points. | ";
-		_hitPoints = 0;
-		std::cout << "HP: " << _hitPoints << std::endl;
-	}
-}
+// void FragTrap::takeDamage(unsigned int amount)
+// {
+// 	long interAmount = (long)amount - _armorReduction;
+// 	if (interAmount < 0)
+// 		interAmount = 0;
+// 	std::cout << "interAmount = " << interAmount << std::endl;
+// 	if (_hitPoints == 0)
+// 		std::cout << "HP is 0." << std::endl;
+// 	else if ((long)_hitPoints - interAmount >= 0)
+// 	{
+// 		_hitPoints -= interAmount;
+// 		std::cout << "FR4G-TP " << _name << " took damege: -" <<
+// 		interAmount << " hit points. | " << "HP: " << _hitPoints
+// 		 << std::endl;
+// 	}
+// 	else
+// 	{
+// 		std::cout << "FR4G-TP " << _name << " took damege: -" <<
+// 		_hitPoints << " hit points. | ";
+// 		_hitPoints = 0;
+// 		std::cout << "HP: " << _hitPoints << std::endl;
+// 	}
+// }
 
-void FragTrap::beRepaired(unsigned int amount)
-{
-	if (_hitPoints == _maxHitPoints)
-		std::cout << "HP is full." << std::endl;
-	else if ((long)_hitPoints + amount <= (long)_maxHitPoints)
-	{
-		_hitPoints += amount;
-		std::cout << "FR4G-TP " << _name << " repared: +" <<
-		amount << " hit points. | " << "HP: " << _hitPoints
-		 << std::endl;
-	}
-	else
-	{
-		std::cout << "FR4G-TP " << _name << " repared: +" <<
-		_maxHitPoints - _hitPoints << " hit points. | ";
-		_hitPoints = 100;
-		std::cout << "HP: " << _hitPoints << std::endl;
-	}
-}
+// void FragTrap::beRepaired(unsigned int amount)
+// {
+// 	if (_hitPoints == _maxHitPoints)
+// 		std::cout << "HP is full." << std::endl;
+// 	else if ((long)_hitPoints + amount <= (long)_maxHitPoints)
+// 	{
+// 		_hitPoints += amount;
+// 		std::cout << "FR4G-TP " << _name << " repared: +" <<
+// 		amount << " hit points. | " << "HP: " << _hitPoints
+// 		 << std::endl;
+// 	}
+// 	else
+// 	{
+// 		std::cout << "FR4G-TP " << _name << " repared: +" <<
+// 		_maxHitPoints - _hitPoints << " hit points. | ";
+// 		_hitPoints = 100;
+// 		std::cout << "HP: " << _hitPoints << std::endl;
+// 	}
+// }
 
 
 void FragTrap::knock_knock(std::string const & target)

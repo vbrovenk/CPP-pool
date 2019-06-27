@@ -1,4 +1,5 @@
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(void)
 {
@@ -16,7 +17,15 @@ int main(void)
 	for (int i = 0; i < 5; i++)
 		ft1.vaulthunter_dot_exe("Bear");
 
+	std::cout << "=======================" << std::endl;
+	ScavTrap scav1("scavchik");
 
+	scav1.meleeAttack("Topor");
+	scav1.takeDamage(55);
+	scav1.beRepaired(30);
+
+	for (int i = 0; i < 5; i++)
+		scav1.challengeNewcomer();
 
 	return 0;
 }
