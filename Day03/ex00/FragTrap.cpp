@@ -69,7 +69,6 @@ void FragTrap::takeDamage(unsigned int amount)
 	long interAmount = (long)amount - _armorReduction;
 	if (interAmount < 0)
 		interAmount = 0;
-	std::cout << "interAmount = " << interAmount << std::endl;
 	if (_hitPoints == 0)
 		std::cout << "HP is 0." << std::endl;
 	else if ((long)_hitPoints - interAmount >= 0)
@@ -107,7 +106,6 @@ void FragTrap::beRepaired(unsigned int amount)
 		std::cout << "HP: " << _hitPoints << std::endl;
 	}
 }
-
 
 void FragTrap::knock_knock(std::string const & target)
 {

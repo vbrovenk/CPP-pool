@@ -55,7 +55,6 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap Destructor called." << std::endl;
 }
 
-
 void ScavTrap::rangedAttack(std::string const & target)
 {
 	std::cout << "ScavTrap " << _name << " attacks " <<
@@ -75,7 +74,6 @@ void ScavTrap::takeDamage(unsigned int amount)
 	long interAmount = (long)amount - _armorReduction;
 	if (interAmount < 0)
 		interAmount = 0;
-	// std::cout << "interAmount = " << interAmount << std::endl;
 	if (_hitPoints == 0)
 		std::cout << "HP is 0." << std::endl;
 	else if ((long)_hitPoints - interAmount >= 0)

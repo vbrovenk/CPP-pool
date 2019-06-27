@@ -56,7 +56,6 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap Destructor called." << std::endl;
 }
 
-
 void ScavTrap::rangedAttack(std::string const & target)
 {
 	std::cout << "ScavTrap " << _name << " attacks " <<
@@ -70,50 +69,6 @@ void ScavTrap::meleeAttack(std::string const & target)
 	target << " at melee, causing " << _meleeAttack <<
 	" points of damage !" << std::endl;
 }
-
-// void ScavTrap::takeDamage(unsigned int amount)
-// {
-// 	long interAmount = (long)amount - _armorReduction;
-// 	if (interAmount < 0)
-// 		interAmount = 0;
-// 	// std::cout << "interAmount = " << interAmount << std::endl;
-// 	if (_hitPoints == 0)
-// 		std::cout << "HP is 0." << std::endl;
-// 	else if ((long)_hitPoints - interAmount >= 0)
-// 	{
-// 		_hitPoints -= interAmount;
-// 		std::cout << "ScavTrap " << _name << " took damege: -" <<
-// 		interAmount << " hit points. | " << "HP: " << _hitPoints
-// 		 << std::endl;
-// 	}
-// 	else
-// 	{
-// 		std::cout << "ScavTrap " << _name << " took damege: -" <<
-// 		_hitPoints << " hit points. | ";
-// 		_hitPoints = 0;
-// 		std::cout << "HP: " << _hitPoints << std::endl;
-// 	}
-// }
-
-// void ScavTrap::beRepaired(unsigned int amount)
-// {
-// 	if (_hitPoints == _maxHitPoints)
-// 		std::cout << "HP is full." << std::endl;
-// 	else if ((long)_hitPoints + amount <= (long)_maxHitPoints)
-// 	{
-// 		_hitPoints += amount;
-// 		std::cout << "ScavTrap " << _name << " repared: +" <<
-// 		amount << " hit points. | " << "HP: " << _hitPoints
-// 		 << std::endl;
-// 	}
-// 	else
-// 	{
-// 		std::cout << "ScavTrap " << _name << " repared: +" <<
-// 		_maxHitPoints - _hitPoints << " hit points. | ";
-// 		_hitPoints = 100;
-// 		std::cout << "HP: " << _hitPoints << std::endl;
-// 	}
-// }
 
 void ScavTrap::iceBucket(void)
 {

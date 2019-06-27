@@ -17,9 +17,6 @@ public:
 
 	void rangedAttack(std::string const & target);
 	void meleeAttack(std::string const & target);
-	// void takeDamage(unsigned int amount);
-	// void beRepaired(unsigned int amount);
-
 
 	void challengeNewcomer(void);
 	void iceBucket(void);
@@ -28,7 +25,7 @@ public:
 	void notLaugh(void);
 	void jellyBean(void);
 
-		
+
 };
 
 #endif

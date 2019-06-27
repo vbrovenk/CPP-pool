@@ -1,9 +1,17 @@
-NAME = eval_expr
+NAME = ex04
 
 SRC = 	main.cpp \
-		Fixed.cpp
+		FragTrap.cpp \
+		ScavTrap.cpp \
+		ClapTrap.cpp \
+		NinjaTrap.cpp \
+		SuperTrap.cpp
 
-HEADERS =	Fixed.hpp
+HEADERS =	FragTrap.hpp \
+			ScavTrap.hpp \
+			ClapTrap.hpp \
+			NinjaTrap.hpp \
+			SuperTrap.hpp
 
 
 OBJ = $(SRC:.cpp=.o)

@@ -5,7 +5,7 @@ ClapTrap::ClapTrap(void)
 	std::cout << "ClapTrap CTOR called." << std::endl;
 	_hitPoints = 0;
 	_maxHitPoints = 0;
-	_energyPoints = 0;
+	_energyPoints = 00;
 	_maxEnergyPoints = 0;
 	_level = 0;
 	_name = "CLAPTRAP";
@@ -18,7 +18,6 @@ ClapTrap::~ClapTrap()
 {
 	std::cout << "ClapTrap DTOR called." << std::endl;	
 }
-
 
 ClapTrap::ClapTrap(const ClapTrap &other)
 {
@@ -48,7 +47,6 @@ void ClapTrap::takeDamage(unsigned int amount)
 	long interAmount = (long)amount - _armorReduction;
 	if (interAmount < 0)
 		interAmount = 0;
-	std::cout << "interAmount = " << interAmount << std::endl;
 	if (_hitPoints == 0)
 		std::cout << "HP is 0." << std::endl;
 	else if ((long)_hitPoints - interAmount >= 0)
