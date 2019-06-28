@@ -93,3 +93,17 @@ void NinjaTrap::ninjaShoebox(ClapTrap &ref)
 		<< std::endl;
 	ref.beRepaired(25);
 }
+
+void NinjaTrap::rangedAttack(std::string const & target)
+{
+	std::cout << "NinjaTrap " << _name << " attacks " <<
+	target << " at range, causing " << _rangedAttack <<
+	" points of damage !" << std::endl;
+}
+
+void NinjaTrap::meleeAttack(std::string const & target)
+{
+	std::cout << "NinjaTrap " << _name << " attacks " <<
+	target << " at melee, causing " << _meleeAttack <<
+	" points of damage !" << std::endl;
+}
