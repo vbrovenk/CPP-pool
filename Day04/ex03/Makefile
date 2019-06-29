@@ -1,15 +1,20 @@
-NAME = ex02
+
+NAME = ex03
 
 SRC = 	main.cpp \
-		Squad.cpp \
-		TacticalMarine.cpp \
-		AssaultTerminator.cpp \
+		AMateria.cpp \
+		Ice.cpp \
+		Cure.cpp \
+		Character.cpp \
+		MateriaSource.cpp
 
-HEADERS =	Squad.hpp \
-			TacticalMarine.hpp \
-			AssaultTerminator.hpp \
-			ISpaceMarine.hpp \
-			ISquad.hpp \
+HEADERS =	AMateria.hpp \
+			Ice.hpp \
+			Cure.hpp \
+			Character.hpp \
+			MateriaSource.hpp \
+			ICharacter.hpp \
+			IMateriaSource.hpp
 
 
 OBJ = $(SRC:.cpp=.o)

@@ -41,25 +41,17 @@ int main(void)
 	std::cout << *charac1;
 	charac1->equip(pr);
 	charac1->attack(sm);
-	std::cout << sm->getHP() << std::endl;
 	charac1->recoverAP();
 	charac1->recoverAP();
-	charac1->attack(sm);
-	std::cout << sm->getHP() << std::endl;
 	charac1->recoverAP();
 	charac1->recoverAP();
-	charac1->attack(sm);
-	std::cout << sm->getHP() << std::endl;
 
 	std::cout << *charac1;
 
-
-
-
 	std::cout << "============================" << std::endl;
 
-	delete pr;
-	delete pf;
+	// delete pr;
+	// delete pf;
 
 
 
