@@ -1,5 +1,4 @@
 #include "Game.hpp"
-#include <unistd.h>
 #include "CollectableItems.hpp"
 #include "Steroid.hpp"
 #include "SmallEnemy.hpp"
@@ -73,6 +72,7 @@ bool Game::checkCollision(AItem *enemy)
 	if (_player->getX() == enemy->getX() &&
 		_player->getY() == enemy->getY())
 	{
+		_score++;
 		return true;
 	}
 	return false;
@@ -155,9 +155,11 @@ void Game::start()
 	_lastTime = clock();
 	_enemyTime = clock();
 	_startGame = time(NULL);
+
+	
 	while (true)
 	{
-		if (_player->getLives() == 0)
+		if (_player->getLives() == 0 || _score == _enemies->getCount())
 			break ;
 
 		printInfo();
@@ -174,6 +176,7 @@ void Game::start()
 		box(_info, 0, 0);
 		wattroff(_win, COLOR_PAIR(1));
 		wattroff(_info, COLOR_PAIR(1));
+
 
 		for (int i = 0; i < _steroids->getCount(); i++)
 		{
