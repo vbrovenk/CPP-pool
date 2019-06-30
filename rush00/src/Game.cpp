@@ -107,6 +107,11 @@ void Game::moveEnemies()
 				_enemies->getUnit(i)->setY(0);
 			else if (_enemies->getUnit(i) != NULL && checkPenetration(_enemies->getUnit(i)) == true)
 				_enemies->setNullUnit(i);
+			else if (_enemies->getUnit(i) != NULL && checkCollision(_enemies->getUnit(i)) == true)
+			{
+				_player->setLives(_player->getLives() - 1);
+				_enemies->setNullUnit(i);
+			}
 			else if (_enemies->getUnit(i) != NULL)
 				mvwaddstr(_win, _enemies->getUnit(i)->getY(), _enemies->getUnit(i)->getX(), "#");
 		}
@@ -143,8 +148,8 @@ void Game::start()
 	// RANDOM ENEMIES
 	for (int i = 0; i < 10; i++)
 	{
-		int rX = 2 + (rand() % 150);
-		int rY = 1 + (rand() % 5);
+		int rX = 3 + (rand() % 150);
+		int rY = 2 + (rand() % 5);
 		_enemies->push(new SmallEnemy(rX, rY));
 
 	}
