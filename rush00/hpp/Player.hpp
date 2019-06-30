@@ -27,10 +27,10 @@ public:
 	int getY() const;
 	int getLives() const;
 
+	void setLives(int newLives);
+
 	void moveLeft();
 	void moveRight();
-	void moveUp();
-	void moveDown();
 
 };
 

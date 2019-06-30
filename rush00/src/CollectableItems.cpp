@@ -48,6 +48,7 @@ void	CollectableItems::setNullUnit(int n)
 {
 	if (n < 0 || n > _count)
 		return ;
+	delete _items[n];
 	_items[n] = NULL;
 }
 

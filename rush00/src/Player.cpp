@@ -49,6 +49,12 @@ int Player::getLives() const
 	return _lives;
 }
 
+void Player::setLives(int newLives)
+{
+	_lives = newLives;
+}
+
+
 void Player::takeDamage(int damge)
 {
 	if (_lives == 0)
@@ -79,14 +85,4 @@ void Player::moveLeft()
 void Player::moveRight()
 {
 	_x++;
-}
-
-void Player::moveUp()
-{
-	_y--;
-}
-
-void Player::moveDown()
-{
-	_y++;
 }
