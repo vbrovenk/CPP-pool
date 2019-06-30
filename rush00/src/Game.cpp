@@ -7,8 +7,6 @@
 #include <ctime>
 #include <iostream>
 
-std::ofstream g_fd("check_log.txt");
-
 Game::Game(void)
 {
 	initscr();
@@ -119,7 +117,6 @@ void Game::moveEnemies()
 
 void Game::printInfo()
 {
-	// std::string lives = itoa (_player->getLives();
 
 	wattron(_info, COLOR_PAIR(2));
 	mvwprintw(_info, 1, 6, "*GAME*", _player->getLives());

@@ -23,7 +23,7 @@ HEADERS = 	hpp/Player.hpp \
 			hpp/SmallEnemy.hpp
 
 
-FLAGS = #-Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 

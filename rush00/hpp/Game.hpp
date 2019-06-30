@@ -8,8 +8,6 @@
 
 class CollectableItems;
 
-extern std::ofstream g_fd;
-
 class Game
 {
 
