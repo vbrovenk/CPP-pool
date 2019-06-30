@@ -209,7 +209,6 @@ void Game::start()
 			{
 				wattron(_win, COLOR_PAIR(4));
 				mvwaddstr(_win, _bullets->getUnit(i)->getY(), _bullets->getUnit(i)->getX(), "|");
-				g_fd << _bullets->getUnit(i)->getX() << "|" << _bullets->getUnit(i)->getY() << std::endl;
 				wattroff(_win, COLOR_PAIR(3));
 			}
 			_bullets->getUnit(i)->moveUp();
@@ -219,8 +218,6 @@ void Game::start()
 
 		moveEnemies();
 		
-
-		// g_fd << key << std::endl;
 		// REFRESH
 		wrefresh(_win);
 		wrefresh(_info);
