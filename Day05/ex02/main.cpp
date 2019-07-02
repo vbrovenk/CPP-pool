@@ -10,22 +10,45 @@ int main(void)
 {
 	try
 	{
-		Bureaucrat bur("Tolik", 5);
-		Bureaucrat bur2("Oleg", 7);
+		Bureaucrat tolik("Tolik", 137);
 
 		ShrubberyCreationForm sh("test");
 		RobotomyRequestForm rr("Robot");
 		PresidentialPardonForm pp("DOCS");
 
-		// sh.execute();
+		std::cout << sh;
+		tolik.executeForm(sh);
+		tolik.signForm(sh);
+		std::cout << sh;
+		tolik.executeForm(sh);
 
-		// rr.execute(bur);
-		// rr.execute(bur);
-		// rr.execute(bur);
+		std::cout << "==========================" << std::endl;
+
+		Bureaucrat oleg("Oleg", 45);
+
+		std::cout << rr;
+		oleg.executeForm(rr);
+		oleg.signForm(rr);
+		std::cout << rr;
+		oleg.signForm(rr);
+		oleg.executeForm(rr);
+		oleg.executeForm(rr);
+		oleg.executeForm(rr);
+
+		tolik.executeForm(sh);
+
+		std::cout << "==========================" << std::endl;
 		
-		bur.executeForm(rr);
+		Bureaucrat alyoshka("Alyoshka", 5);
+		
+		std::cout << pp;
+		alyoshka.executeForm(pp);
+		alyoshka.signForm(pp);
+		std::cout << pp;
 
-		// std::cout << bur;
+		alyoshka.executeForm(pp);
+
+
 	}
 	catch (std::exception & e)
 	{

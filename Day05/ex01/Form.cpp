@@ -52,12 +52,6 @@ int Form::getGradeExecute() const
 
 void Form::beSigned(Bureaucrat const &b)
 {
-	if (_signedStatus == true)
-	{
-		std::cout << "Form: " << _name << " already has been signed." << std::endl;
-		return ;
-	}
-
 	if (b.getGrade() > _gradeSign)
 		throw Form::GradeTooLowException();
 	_signedStatus = true;

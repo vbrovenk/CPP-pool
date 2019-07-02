@@ -66,8 +66,16 @@ void Bureaucrat::signForm(Form &form)
 	}
 	else
 	{
-		form.beSigned(*this);
-		std::cout << _name << " signs \'" << form.getName() << "\' form." << std::endl;
+		try
+		{
+			form.beSigned(*this);
+			std::cout << _name << " signs \'" << form.getName() << "\' form." << std::endl;
+		}
+		catch (std::exception const &e)
+		{
+			std::cout << _name << " can't sign \'" << 
+				form.getName() << "\' because his grade is too Low." << std::endl;
+		}
 	}
 }
 

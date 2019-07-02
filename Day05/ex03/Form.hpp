@@ -1,33 +1,38 @@
-#ifndef BUREAUCRAT_HPP
-# define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+# define FORM_HPP
 
-# include <iostream>
-# include <exception>
+#include <iostream>
 
-class Form;
+class Bureaucrat;
 
-class Bureaucrat
+class Form
 {
 
 private:
 	const std::string _name;
-	int _grade;
-	Bureaucrat(void);
- 
-public:
-	Bureaucrat(std::string name, int grade);
-	Bureaucrat(Bureaucrat const &other);
-	~Bureaucrat();
+	const int _gradeSign;
+	const int _gradeExecute;
+	bool _signedStatus;
 
-	Bureaucrat &operator =(Bureaucrat const &other);
+	Form(void);
+
+
+public:
+	Form(std::string name, int gradeSign, int gradeExecute);
+	Form(Form const &other);
+	virtual ~Form();
+
+	Form &operator =(Form const &other);
+
 
 	std::string getName() const;
-	int getGrade() const;
+	bool getSignedStatus() const;
+	int getGradeSign() const;
+	int getGradeExecute() const;
 
-	void increaseGrade();
-	void decreaseGrade();
-	void signForm(Form &form);
-	void executeForm(Form const & form);
+	void beSigned(Bureaucrat const &b);
+	virtual void execute(Bureaucrat const & executor) const = 0;
+
 
 	class GradeTooHighException : public std::exception
 	{
@@ -37,6 +42,8 @@ public:
 			GradeTooHighException(GradeTooHighException const &other);
 
 			GradeTooHighException &operator =(GradeTooHighException const &other);
+
+
 	};
 
 	class GradeTooLowException : public std::exception
@@ -48,8 +55,9 @@ public:
 
 			GradeTooLowException &operator =(GradeTooLowException const &other);
 	};
+	
 };
 
-std::ostream &operator <<(std::ostream &o, Bureaucrat const & i);
+std::ostream &operator <<(std::ostream &o, Form const & i);
 
 #endif

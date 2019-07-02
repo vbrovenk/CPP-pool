@@ -9,11 +9,11 @@ int main(void)
 		std::cout << *b1;
 		// b1->increaseGrade();
 		// b1.increaseGrade();
-		// b1.increaseGrade();
+		b1->increaseGrade();
 		// b1->decreaseGrade();
 
-		b1->decreaseGrade();
-		b1->decreaseGrade();
+		// b1->decreaseGrade();
+		// b1->decreaseGrade();
 		std::cout << *b1;
 	}
 	catch(std::exception & e)

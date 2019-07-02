@@ -6,13 +6,17 @@ int main(void)
 {
 	try
 	{
-		Bureaucrat bur("Tolik", 5);
-		Bureaucrat bur2("Oleg", 7);
+		Bureaucrat tolik("Tolik", 6);
+		Bureaucrat oleg("Oleg", 7);
+
+		Bureaucrat alyoshka("Alyoshka", 10);
 
 		Form form1("MAIN", 6, 150);
+		std::cout << form1;
 
-		bur.signForm(form1);
-		bur2.signForm(form1);
+
+		tolik.signForm(form1);
+		oleg.signForm(form1);
 
 		std::cout << form1;
 	}
