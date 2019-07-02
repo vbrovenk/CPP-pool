@@ -6,14 +6,16 @@ SRC = 	main.cpp \
 		ShrubberyCreationForm.cpp \
 		RobotomyRequestForm.cpp \
 		PresidentialPardonForm.cpp \
-		Intern.cpp
+		Intern.cpp \
+		OfficeBlock.cpp
 
 HEADERS =	Bureaucrat.hpp \
 			Form.hpp \
 			ShrubberyCreationForm.hpp \
 			RobotomyRequestForm.hpp \
 			PresidentialPardonForm.hpp \
-			Intern.hpp
+			Intern.hpp \
+			OfficeBlock.hpp
 
 
 OBJ = $(SRC:.cpp=.o)

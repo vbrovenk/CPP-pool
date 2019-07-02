@@ -4,51 +4,24 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
+#include "Intern.hpp"
+
 
 
 int main(void)
 {
 	try
 	{
-		// Bureaucrat tolik("Tolik", 137);
+		Intern someRandomIntern;
 
-		// ShrubberyCreationForm sh("test");
-		// RobotomyRequestForm rr("Robot");
-		// PresidentialPardonForm pp("DOCS");
+		Form *rrf;
 
-		// std::cout << sh;
-		// tolik.executeForm(sh);
-		// tolik.signForm(sh);
-		// std::cout << sh;
-		// tolik.executeForm(sh);
-
-		// std::cout << "==========================" << std::endl;
-
-		// Bureaucrat oleg("Oleg", 45);
-
-		// std::cout << rr;
-		// oleg.executeForm(rr);
-		// oleg.signForm(rr);
-		// std::cout << rr;
-		// oleg.signForm(rr);
-		// oleg.executeForm(rr);
-		// oleg.executeForm(rr);
-		// oleg.executeForm(rr);
-
-		// tolik.executeForm(sh);
-
-		// std::cout << "==========================" << std::endl;
+		rrf = someRandomIntern.makeForm("presidential request", "Bender");
 		
-		// Bureaucrat alyoshka("Alyoshka", 5);
-		
-		// std::cout << pp;
-		// alyoshka.executeForm(pp);
-		// alyoshka.signForm(pp);
-		// std::cout << pp;
+		std::cout << *rrf;
+		Bureaucrat tolik("Tolik", 33);
 
-		// alyoshka.executeForm(pp);
-
-		
+		tolik.signForm(*rrf);
 
 	}
 	catch (std::exception & e)
