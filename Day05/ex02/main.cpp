@@ -1,6 +1,9 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+
 
 
 int main(void)
@@ -11,10 +14,18 @@ int main(void)
 		Bureaucrat bur2("Oleg", 7);
 
 		ShrubberyCreationForm sh("test");
-		// sh.action();
+		RobotomyRequestForm rr("Robot");
+		PresidentialPardonForm pp("DOCS");
 
+		// sh.execute();
 
-		std::cout << bur;
+		// rr.execute(bur);
+		// rr.execute(bur);
+		// rr.execute(bur);
+		
+		bur.executeForm(rr);
+
+		// std::cout << bur;
 	}
 	catch (std::exception & e)
 	{

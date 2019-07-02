@@ -71,6 +71,22 @@ void Bureaucrat::signForm(Form &form)
 	}
 }
 
+void Bureaucrat::executeForm(Form const & form)
+{
+	if (form.getSignedStatus() == false)
+	{
+		std::cout << _name << " can't sign \'" << 
+		form.getName() << "\' because this form isn't signed." << std::endl;
+	}
+	else
+	{
+		std::cout << _name << " executes " << form.getName() << "form." << std::endl;
+		form.execute(*this);
+	}
+
+}
+
+
 std::ostream &operator <<(std::ostream &o, Bureaucrat const & i)
 {
 	o << i.getName() << ", bureaucrat grade " << i.getGrade() << std::endl;

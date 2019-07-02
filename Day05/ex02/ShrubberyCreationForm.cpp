@@ -1,4 +1,5 @@
 #include "ShrubberyCreationForm.hpp"
+#include "Bureaucrat.hpp"
 #include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(void) : Form("shrubbery", 145, 137)
@@ -15,6 +16,20 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("Shrubbe
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 	
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &other) : Form("shrubbery", 145, 137)
+{
+	*this = other;
+}
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator =(ShrubberyCreationForm const &other)
+{
+	if (this != &other)
+	{
+		_target = other._target;
+	}
+	return *this;
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
@@ -34,4 +49,5 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
     "   |.|        | |         | | " << std::endl << 
 "jgs \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__/_ " << std::endl;
 	ofs.close();
+	std::cout << executor;
 }

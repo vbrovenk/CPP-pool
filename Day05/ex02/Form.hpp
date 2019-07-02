@@ -20,7 +20,7 @@ private:
 public:
 	Form(std::string name, int gradeSign, int gradeExecute);
 	Form(Form const &other);
-	~Form();
+	virtual ~Form();
 
 	Form &operator =(Form const &other);
 
@@ -31,7 +31,7 @@ public:
 	int getGradeExecute() const;
 
 	void beSigned(Bureaucrat const &b);
-	virtual void execute(Bureaucrat const & executor) const;
+	virtual void execute(Bureaucrat const & executor) const = 0;
 
 
 	class GradeTooHighException : public std::exception
