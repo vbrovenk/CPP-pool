@@ -30,7 +30,7 @@ OfficeBlock &OfficeBlock::operator =(OfficeBlock const &other)
 {
 	if (this != &other)
 	{
-
+		
 	}
 	return *this;
 }
@@ -61,7 +61,6 @@ void OfficeBlock::doBureaucracy(std::string formName, std::string target)
 
 	_signer->signForm(*newForm);
 	_executor->executeForm(*newForm);
-	// std::cout << "Office block succesfully done." << std::endl;
 }
 
 
