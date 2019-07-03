@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 	{
 		char c = static_cast<char> (caster);
 		if (c >= 32 && c <= 127)
-			std::cout << "char: " << c << std::endl;
+			std::cout << "char: '" << c << "'" << std::endl;
 		else
 			std::cout << "char:  Non displayable" << std::endl;
 	}
@@ -34,16 +34,27 @@ int main(int argc, char *argv[])
 		std::cout << "int: impossible" << std::endl;
 	}
 
-	// char c = static_cast<char> (caster);
-	// if (caster.getStatusOK() == true)
-	// 	std::cout << "char: " << c << std::endl;
-	// else
-	// 	std::cout << "char: impossible" << std::endl;
+	try
+	{
+		float f = static_cast<float> (caster);
+		std::cout << "float: " << f << "f" << std::endl;
+	}
+	catch (std::exception &ex)
+	{
+		std::cout << "float: impossible" << std::endl;
 
+	}
 
+	try
+	{
+		double d = static_cast<double> (caster);
+		std::cout << "double: " <<  d << std::endl;
+	}
+	catch (std::exception &ex)
+	{
+		std::cout << "double: impossible" << std::endl;
 
-	float f = static_cast<float> (caster);
-	std::cout << f << std::endl;
+	}
 
 	return 0;
 }

@@ -19,6 +19,8 @@ public:
 	operator char() const;
 	operator int() const;
 	operator float() const;
+	operator double() const;
+
 
 };
 

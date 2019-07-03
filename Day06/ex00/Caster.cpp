@@ -31,37 +31,58 @@ Caster &Caster::operator =(Caster const &other)
 
 Caster::operator char() const
 {
+	std::stringstream ss;
 
 	int inter;
 	char nbr = '\0';
-	if ((inter = std::stoi(_value)))
+
+	if (ss << _value && ss >> inter)
 	{
+		if (nbr < 0 || nbr > 127)
+			return 0;
 		nbr = static_cast<char> (inter);
 		return nbr;
 	}
+	else
+		throw std::exception();
 
 	return nbr;
 }
 
 Caster::operator int() const
 {
+	std::stringstream ss;
+
 	int nbr;
-	if ((nbr = std::stoi(_value)))
+	if (ss << _value && ss >> nbr)
 	{
 		return nbr;
 	}
+	else
+		throw std::exception();
+
 	return nbr;
 }
 
 Caster::operator float() const
 {
-	std::stringstream ss;
-	ss << _value;
-	float nbr;
+	float nbr = 0;
 
-	if (ss >> nbr)
+	if ((nbr = std::stof(_value)))
 	{
-		std::cout << "float: " << nbr << std::endl;
+		return nbr;
+	}
+	
+	return nbr;
+}
+
+Caster::operator double() const
+{
+	double nbr = 0;
+
+	if ((nbr = std::stod(_value)))
+	{
+		return nbr;
 	}
 	
 	return nbr;
