@@ -9,13 +9,13 @@ void swap(T &left, T &right)
 }
 
 template <typename T>
-T const &min(T const &left, T const &right)
+T  &min(T &left, T &right)
 {
 	return left < right ? left : right;
 }
 
 template <typename T>
-T const &max(T const &left, T const &right)
+T &max(T &left, T &right)
 {
 	return left > right ? left : right;
 }
@@ -39,6 +39,7 @@ int main(void)
 	std::cout << "c = " << c << ", d = " << d << std::endl;
 	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
 	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
-	
+
+
 	return 0;
 }

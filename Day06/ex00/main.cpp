@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Caster.hpp"
+#include <iomanip>
 
 int main(int argc, char *argv[])
 {
@@ -37,7 +38,7 @@ int main(int argc, char *argv[])
 	try
 	{
 		float f = static_cast<float> (caster);
-		std::cout << "float: " << f << "f" << std::endl;
+		std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
 	}
 	catch (std::exception &ex)
 	{
