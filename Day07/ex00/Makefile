@@ -1,6 +1,6 @@
-NAME = dynamic
+NAME = ex00
 
-SRC = 	main.cpp
+SRC = 	whatever.cpp
 
 HEADERS =
 

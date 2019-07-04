@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 	}
 	catch (std::exception &ex)
 	{
-		std::cout << "int: impossible" << std::endl;
+		std::cout << "char: impossible" << std::endl;
 	}
 
 	try

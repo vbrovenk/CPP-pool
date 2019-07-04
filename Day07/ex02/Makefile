@@ -1,8 +1,8 @@
-NAME = dynamic
+NAME = ex02
 
 SRC = 	main.cpp
 
-HEADERS =
+HEADERS = Array.hpp
 
 OBJ = $(SRC:.cpp=.o)
 

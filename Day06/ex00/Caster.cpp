@@ -38,7 +38,7 @@ Caster::operator char() const
 
 	if (ss << _value && ss >> inter)
 	{
-		if (nbr < 0 || nbr > 127)
+		if (inter < 0 || inter > 127)
 			return 0;
 		nbr = static_cast<char> (inter);
 		return nbr;
@@ -68,7 +68,7 @@ Caster::operator float() const
 {
 	float nbr = 0;
 
-	if ((nbr = std::stof(_value)))
+	if ((nbr = std::atof(_value.c_str())))
 	{
 		return nbr;
 	}
@@ -80,7 +80,7 @@ Caster::operator double() const
 {
 	double nbr = 0;
 
-	if ((nbr = std::stod(_value)))
+	if ((nbr = std::atof(_value.c_str())))
 	{
 		return nbr;
 	}

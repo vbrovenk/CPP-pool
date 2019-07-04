@@ -1,6 +1,6 @@
-NAME = dynamic
+NAME = ex01
 
-SRC = 	main.cpp
+SRC = 	iter.cpp
 
 HEADERS =
 
