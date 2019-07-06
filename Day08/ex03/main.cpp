@@ -17,8 +17,7 @@ int main(int argc, char *argv[])
 	}
 
 	BrainFuck brain(infile);
-
-
+	brain.run();
 
 	infile.close();
 	return 0;

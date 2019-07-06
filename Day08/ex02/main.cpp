@@ -33,6 +33,7 @@ int main(void)
 	std::cout << "========== ORIG STACK =======" << std::endl;
 	std::stack<int> s(mstack);
 	std::cout << s.top() << std::endl;
+
 	std::cout << "========== STRING STACK =======" << std::endl;
 	
 	MutantStack<std::string> st;

@@ -9,9 +9,13 @@ int main(void)
 
 	try
 	{
-		std::vector<int> v1 = {1, 2, 3, 4};
+		int arr[] = { 1, 2, 3, 4 };
 
-		easyfind(v1, 4);
+		// std::vector<int> v1 = {1, 2, 3, 4};
+		std::vector<int> v1(arr, arr + sizeof(arr) / sizeof(arr[0]));
+
+
+		easyfind(v1, 3);
 	}
 	catch (std::exception &ex)
 	{
@@ -20,9 +24,10 @@ int main(void)
 
 	try
 	{
-		std::array<int, 6> a1 = {66, 4, 3, 22, 63, 23};
+		std::array<int, 6> a1 = {{66, 4, 3, 22, 63, 23}};
 
-		easyfind(a1, 24);
+
+		easyfind(a1, 0);
 	}
 	catch (std::exception &ex)
 	{
@@ -31,7 +36,9 @@ int main(void)
 
 	try
 	{
-		std::list<int> lst1 = {9, 8, 6, 5, 3, 2};
+		int arr[] = { 9, 8, 6, 5, 3, 2 };
+
+		std::list<int> lst1(arr, arr + sizeof(arr) / sizeof(arr[0]));
 
 		easyfind(lst1, 3);
 	}

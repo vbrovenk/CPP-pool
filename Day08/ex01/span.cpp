@@ -35,16 +35,10 @@ void Span::addNumber(int newNbr)
 {
 	if (_vec.size() == _N)
 	{
-		std::cout << "Span is full." << std::endl;
-		return ;
-	}
-	std::vector<int>::const_iterator alreadyExist;
-
-	alreadyExist = find(_vec.begin(), _vec.end(), newNbr);
-	if (alreadyExist == _vec.end())
-		_vec.push_back(newNbr);
-	else
 		throw std::exception();
+	}
+
+	_vec.push_back(newNbr);
 }
 
 void Span::addRange(int low, int upper)
@@ -53,10 +47,6 @@ void Span::addRange(int low, int upper)
 		throw std::exception();
 	for (int i = low; i < upper; i++)
 	{
-		std::vector<int>::const_iterator alreadyExist;
-		alreadyExist = find(_vec.begin(), _vec.end(), i);
-		
-		if (alreadyExist == _vec.end())
 			_vec.push_back(i);
 	}
 }
@@ -65,14 +55,35 @@ int Span::shortestSpan() const
 {
 	if (_vec.size() <= 1)
 		throw std::exception();
+	int min_dist = INT_MAX;
+	
+	std::vector<int>::const_iterator left = _vec.begin();
+	std::vector<int>::const_iterator right;
 
-	return *std::min_element(_vec.begin(), _vec.end());
+	while (left != _vec.end())
+	{
+		right = left + 1;
+		while (right != _vec.end())
+		{
+			if (abs(*left - *right) < min_dist)
+				min_dist = abs(*left - *right);
+			right++;
+		}
+		left++;
+	}
+
+	return min_dist;
 }
+
+
 int Span::longestSpan() const
 {
 	if (_vec.size() <= 1)
 		throw std::exception();
-	
-	return *std::max_element(_vec.begin(), _vec.end());
+
+	int max = *std::max_element(_vec.begin(), _vec.end());
+	int min = *std::min_element(_vec.begin(), _vec.end());
+
+	return max - min;
 }
 

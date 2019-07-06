@@ -12,16 +12,17 @@ int main(void)
 		sp.addNumber(17);
 		sp.addNumber(9);
 		sp.addNumber(11);
+
 	}
 	catch (std::exception &ex)
 	{
-		std::cout << "Element already in Span" << std::endl;
+		std::cout << "Span is full." << std::endl;
 	}
 
 	try
 	{
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
+		std::cout << "shortestSpan: " << sp.shortestSpan() << std::endl;
+		std::cout << "longestSpan: " << sp.longestSpan() << std::endl;
 
 	}
 	catch (std::exception &ex)

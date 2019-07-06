@@ -1,9 +1,12 @@
 NAME = brainfuck
 
 SRC = 	main.cpp \
-		BrainFuck.cpp
+		BrainFuck.cpp \
+		InstructionNextCell.cpp
 
-HEADERS = BrainFuck.hpp
+HEADERS =	BrainFuck.hpp \
+			IInstruction.hpp \
+			InstructionNextCell.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
