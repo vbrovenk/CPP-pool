@@ -57,7 +57,18 @@ void TextMode::displayStep1(std::vector<std::string> &allInfo)
 	mvwprintw(_step1, 4, 2, "Username: %s", allInfo[1].c_str());
 
 	mvwprintw(_step1, 6, 15, "OS Info:");
-	mvwprintw(_step1, 7, 4, "%s", allInfo[2].c_str());
+	// mvwprintw(_step1, 7, 4, "%s", allInfo[2].c_str());
+
+	int y = 7;
+	int x = 4;
+
+	size_t pos;
+	while ((pos = allInfo[2].find('\n')) != std::string::npos) {
+	std::string token = allInfo[2].substr(0, pos);
+		mvwprintw(_step1, y, x, "%s", token.c_str());
+		y += 1;
+		allInfo[2].erase(0, pos + 1);
+	}
 
 	mvwprintw(_step1, 11, 2, "Time: %s", allInfo[3].c_str());
 	wrefresh(_step1);
@@ -71,7 +82,7 @@ void TextMode::displayStep2(std::vector<std::string> &allInfo)
 	box(_step2, 0, 0);
 
 	mvwprintw(_step2, 1, 15, "< STEP 2 >");
-	mvwprintw(_step2, 3, 2, "%s", allInfo[4].c_str());
+	mvwprintw(_step2, 3, 2, "CPU Usage: %s", allInfo[4].c_str());
 	mvwprintw(_step2, 6, 2, "PhysMem: %s", allInfo[5].c_str());
 
 	wrefresh(_step2);

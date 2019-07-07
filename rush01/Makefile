@@ -14,18 +14,19 @@ HEADERS = 	hpp/IMonitorModule.hpp \
 			hpp/GraphicalMode.hpp
 
 
-FLAGS = # -Wall -Wextra -Werror
+FLAGS =  -Wall -Wextra -Werror
 
-INCLUDES =	-I ./SDL2.framework/Headers/ \
-			-I ./SDL2_ttf.framework/Headers
+INCLUDES =	-I./frameworks/SDL2.framework/Headers/ \
+			-I./frameworks/SDL2_ttf.framework/Headers/
 
-FRAMEWORKS = -framework SDL2 \
-			# -framework SDL2_ttf
+FRAMEWORKS = -F./frameworks -rpath ./frameworks -framework SDL2\
+												 -framework SDL2_ttf
+			
 
 all: $(NAME)
 
 $(NAME): obj $(OBJ)
-	clang++ $(OBJ) -o $(NAME) -lncurses $(FRAMEWORKS)
+	clang++ $(OBJ) -o $(NAME) $(FRAMEWORKS) -lncurses
 	
 obj/%.o: src/%.cpp $(HEADERS)
 	clang++ $(FLAGS) -c $< -o $@ -I hpp $(INCLUDES)
